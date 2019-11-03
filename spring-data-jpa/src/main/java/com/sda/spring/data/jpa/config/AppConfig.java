@@ -2,6 +2,13 @@ package com.sda.spring.data.jpa.config;
 
 import com.sda.spring.data.jpa.book.Book;
 import com.sda.spring.data.jpa.book.BookRepository;
+import com.sda.spring.data.jpa.domain.Father;
+import com.sda.spring.data.jpa.domain.Son;
+import com.sda.spring.data.jpa.exception.NotFoundException;
+import com.sda.spring.data.jpa.repository.FatherRepository;
+import com.sda.spring.data.jpa.repository.SonRepository;
+import com.sda.spring.data.jpa.validation.User;
+import com.sda.spring.data.jpa.validation.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +27,15 @@ public class AppConfig {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private FatherRepository fatherRepository;
+
+    @Autowired
+    private SonRepository sonRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
     @Bean
     public CommandLineRunner loadData() {
         return (args) -> {
@@ -30,9 +46,46 @@ public class AppConfig {
 
             findBookUsingOptionalGet();
 
-            //find using optional orElseThrow
             findBookUsingOptionalOrElseThrow();
+
+            testAssociations();
+
+            testValidation();
         };
+    }
+
+    private void testValidation() {
+        User user = createUser();
+        userRepository.save(user);
+        User savedUser = userRepository.findById(2L).orElseThrow(() -> new NotFoundException("User not found"));
+        log.info("saved user: {}", savedUser);
+    }
+
+    private User createUser() {
+        User user = new User();
+
+        user.setName("Jon Snow");
+        user.setEmail("jon.snow@gmail.com");
+        user.setAge(30);
+        user.setConsent(true);
+        user.setAboutMe("I know nothing");
+        return user;
+    }
+
+    private void testAssociations() {
+        Son son1 = new Son();
+        son1.setName("son1");
+
+        Son son2 = new Son();
+        son2.setName("son2");
+
+        Father father = new Father();
+        father.setName("father");
+        father.getSons().add(son1);
+        father.getSons().add(son2);
+        fatherRepository.save(father);
+        log.info("father repository size: {}", fatherRepository.count());
+        log.info("son repository size: {}", sonRepository.count());
     }
 
     private void findBookUsingOptionalOrElseThrow() {
