@@ -51,13 +51,15 @@ public class AppConfig {
             testAssociations();
 
             testValidation();
+
         };
     }
 
     private void testValidation() {
-        User user = createUser();
+        //User user = createUser();
+        User user = createBadUser();
         userRepository.save(user);
-        User savedUser = userRepository.findById(2L).orElseThrow(() -> new NotFoundException("User not found"));
+        User savedUser = userRepository.findById(5L).orElseThrow(() -> new NotFoundException("User not found"));
         log.info("saved user: {}", savedUser);
     }
 
@@ -68,6 +70,17 @@ public class AppConfig {
         user.setEmail("jon.snow@gmail.com");
         user.setAge(30);
         user.setConsent(true);
+        user.setAboutMe("I know nothing");
+        return user;
+    }
+
+    private User createBadUser() {
+        User user = new User();
+
+        user.setName("");
+        user.setEmail("jon.snowgmail.com");
+        user.setAge(5);
+        user.setConsent(false);
         user.setAboutMe("I know nothing");
         return user;
     }

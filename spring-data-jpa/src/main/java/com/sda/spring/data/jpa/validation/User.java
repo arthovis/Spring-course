@@ -12,24 +12,19 @@ public class User {
     private Long id;
 
     @NotNull
-    @Column(name = "name")
     private String name;
 
     @Email(message = "Invalid email format")
-    @Column(name = "email")
     private String email;
 
     @AssertTrue
-    @Column(name = "consent")
     private boolean consent;
 
     @Size(min = 10, max = 100, message = "Description should be between 10 and 100 characters.")
-    @Column(name = "about-me")
     private String aboutMe;
 
     @Min(value = 18, message = "Age should be at least 18")
     @Max(value = 80, message = "Age should be of maximum 80")
-    @Column(name = "age")
     private int age;
 
     public Long getId() {
