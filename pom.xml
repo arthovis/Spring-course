@@ -15,6 +15,7 @@
         <module>spring-mvc</module>
         <module>spring-thymeleaf</module>
         <module>spring-security</module>
+        <module>parent-boot-2</module>
     </modules>
 
 
