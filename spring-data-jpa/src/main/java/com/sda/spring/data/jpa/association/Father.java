@@ -1,4 +1,4 @@
-package com.sda.spring.data.jpa.domain;
+package com.sda.spring.data.jpa.association;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -1,8 +1,6 @@
 package com.sda.spring.data.jpa.config;
 
 import com.sda.spring.data.jpa.domain.Person;
-import com.sda.spring.data.jpa.exception.NotFoundException;
-import com.sda.spring.data.jpa.repository.PersonCrudRepository;
 import com.sda.spring.data.jpa.repository.PersonPagingAndSortingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-@Configuration
+//@Configuration
 public class PagingAndSortingRepositoryConfig {
 
     private static final Logger log = LoggerFactory.getLogger(PagingAndSortingRepositoryConfig.class);

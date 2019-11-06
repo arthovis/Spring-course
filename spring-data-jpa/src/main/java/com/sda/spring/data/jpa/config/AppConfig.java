@@ -2,11 +2,11 @@ package com.sda.spring.data.jpa.config;
 
 import com.sda.spring.data.jpa.book.Book;
 import com.sda.spring.data.jpa.book.BookRepository;
-import com.sda.spring.data.jpa.domain.Father;
-import com.sda.spring.data.jpa.domain.Son;
+import com.sda.spring.data.jpa.association.Father;
+import com.sda.spring.data.jpa.association.Son;
 import com.sda.spring.data.jpa.exception.NotFoundException;
-import com.sda.spring.data.jpa.repository.FatherRepository;
-import com.sda.spring.data.jpa.repository.SonRepository;
+import com.sda.spring.data.jpa.association.FatherRepository;
+import com.sda.spring.data.jpa.association.SonRepository;
 import com.sda.spring.data.jpa.validation.User;
 import com.sda.spring.data.jpa.validation.UserRepository;
 import org.slf4j.Logger;

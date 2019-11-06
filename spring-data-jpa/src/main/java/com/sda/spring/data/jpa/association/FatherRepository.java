@@ -1,6 +1,5 @@
-package com.sda.spring.data.jpa.repository;
+package com.sda.spring.data.jpa.association;
 
-import com.sda.spring.data.jpa.domain.Father;
 import org.springframework.data.repository.CrudRepository;
 
 public interface FatherRepository extends CrudRepository<Father, Long> {
