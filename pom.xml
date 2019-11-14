@@ -17,6 +17,8 @@
         <module>spring-security</module>
         <module>parent-boot-2</module>
         <module>spring-mvc-hibernate</module>
+        <module>spring-boot-jsp</module>
+        <module>spring-mvc</module>
     </modules>
 
     <build>
