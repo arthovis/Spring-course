@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-mvc-jsp</artifactId>
+    <artifactId>spring-mvc-hibernate</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
