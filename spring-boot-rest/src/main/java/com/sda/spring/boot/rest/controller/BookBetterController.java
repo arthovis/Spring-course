@@ -44,6 +44,13 @@ public class BookBetterController {
         return new ResponseEntity<>(bookResponse, HttpStatus.OK);
     }
 
+    @GetMapping("/search")
+    public List<BookResponse> getBooksByAuthor(@RequestParam("author") String author) {
+        log.info("Get all books by author: {}", author);
+
+        return bookService.findByAuthor(author);
+    }
+
     @PostMapping
     // the created book type - method name - book details
     public BookResponse createBook(@RequestBody BookRequest bookRequest) {
